@@ -1,0 +1,32 @@
+
+{% extends "navbar1.html" %}
+
+{% block content %}
+<head>
+  <style>
+    
+
+  </style>
+</head>
+<body>
+  <h2 style='text-align:center;color:blue;'>Your Shopping Cart</h2>
+  
+  <div class='row ml-5 mr-5' style='min-height:70vh;'>
+  <div class="container mt-5">
+    <div class="row">  
+{% for i in f %} 
+<div class="card" style="width: 15rem;">
+  <img class="card-img-top" src="{{i.product.image.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{i.product.productname}}</h5>
+    <p class="card-text">{{i.product.description}}</p>
+    <p class="card-text">{{i.product.price}}</p>
+    <button class="btn" style="background-color:red;"><a href="{% url "remove1" i.id %}" style="text-decoration:none;color:white;">Remove</a></button> 
+  </div>
+</div>
+  {% endfor %}
+</div>
+</div>
+</div>
+  </body>
+{% endblock %} 

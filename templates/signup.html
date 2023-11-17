@@ -1,0 +1,95 @@
+{% extends 'navbar1.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <style>
+        #cd{
+            background-color: rgba(0, 0, 0, 0.65);
+            padding: 20px;
+            border-radius: 5px;
+            font-size: larger;
+        }
+        body{
+            background-image:url('{% static "images/login.webp" %}');
+            background-size:cover;
+            background-repeat:no repeat;
+        }
+    </style>
+</head>
+<body style='background-color:#88e3a0;'>
+    
+
+<br><br>
+
+<div class="container col-sm-6" id="cd">
+    
+        
+            <center><h1 style="color: #34fa07;">Create Account</i></h1></center>
+            {% if messages %}
+            {% for i in messages %}
+            
+              <center>  <h2 {% if i.tags %} class="{{i.tags}}" {% endif %} style="border-radius: 50px; background-color: white; padding: 10px 0;">{{i}}</h2></center>
+              
+            {% endfor %} 
+            {% endif %}
+            
+             <br>
+            <form action="{% url "signupaction" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col">
+                        {% comment %} <label class="ml-2" for="fn">First name</label> {% endcomment %}
+                        <input type="text" name="fname" id="fn" style="color: #e77272;" class="form-control" placeholder="Enter First name">
+                    </div>
+                    <div class="form-group col">
+                        {% comment %} <label class="ml-2" for="ln">Last name</label> {% endcomment %}
+                        <input type="text" name="lname" id="ln" style="color: #e77272;" class="form-control" placeholder="Enter Last name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        {% comment %} <label class="ml-2" for="un">Username</label> {% endcomment %}
+                        <input type="text" name="uname" id="un" style="color: #e77272;" class="form-control" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group col">
+                        {% comment %} <label class="ml-2" for="ad">Address</label> {% endcomment %}
+                        <input type="text" name="address" id="ad" style="color: #e77272;" class="form-control" placeholder="Enter Address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        {% comment %} <label class="ml-2" for="">Contact Number</label> {% endcomment %}
+                        <input type="text" name="contact" id="" style="color: #e77272;" class="form-control" placeholder="Contact Number">
+                    </div>
+                
+                
+                    <div class="form-group col">
+                        {% comment %} <label class="ml-2" for="em">Email</label> {% endcomment %}
+                        <input type="email" name="email" id="em" style="color: #e77272;" class="form-control" placeholder="Enter Email">
+                    </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    {% comment %} <label class="ml-2" for="pa">Password</label> {% endcomment %}
+                    <input type="password" name="pass" id="pa" style="color: #f75858;" class="form-control" placeholder="Enter Password">
+                </div>
+                <div class="form-group col">
+                    {% comment %} <label class="ml-2" for="cp">Confirm Password</label> {% endcomment %}
+                    <input type="password" name="cpass" id="cp" style="color: #e77272;" class="form-control" placeholder="Confirm Password">
+                </div>
+            </div>
+                
+                <div class="form-group">
+                    <label class="ml-2" for="im" style="color: white;">Image : </label>
+                    <input style="font-size: larger;color: #e77272;" class="btn" type="file" name="image" id="im" required>
+                </div>
+                
+                <button type="submit" class="btn form-control" style=" background-color:#f75858 ; font-weight: 500;  border-radius: 50px;" >Register </button>
+            
+            </form>
+            
+        
+</div>
+<br><br><br><br>
+</body>
+{% endblock %}

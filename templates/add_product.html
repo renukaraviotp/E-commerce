@@ -1,0 +1,54 @@
+{% extends "navbar2.html" %}
+{% block content %}
+{% load static %}
+<head>
+    <style>
+        #cd{
+            background-color: rgba(0, 0, 0, 0.65);
+            padding: 20px;
+            border-radius: 5px;
+            font-size: larger;
+        }
+        body{
+            background-color:#51b56c;
+        }
+    </style>
+</head>
+<body> 
+     <br><br><br>
+    <center>
+        <div class="container col-8" id="cd">
+            <h1 style='color:#bfe5f5;'>Add Product</h1>
+            <form action="{% url "addp" %}" method='post' enctype="multipart/form-data"> 
+                {% csrf_token %}
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control" id="exampleInputEmail1" name='pname' placeholder="Add Product">
+                  </div>
+                  <div class="form-group">
+                    
+                    <input type="text" class="form-control" id="exampleInputEmail1" name='des' placeholder="Description"> 
+                  </div>
+                  <div class="form-group">
+                    
+                    <select name="category" class="form-control">
+                        {% for i in c %}
+                        <option value="{{i.id}}">{{i.category}}</option> 
+                        {% endfor %}
+                    </select>        
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" class="form-control" id="exampleInputEmail1" name='price' placeholder="Price">
+                  </div>
+                  <div class="form-group">
+                    <label></label>
+                    <input type="file" name='photo' class="form-contol-file">
+                </div>
+                  <button type="submit" class="btn btn-primary w-50">Submit</button> 
+            </form>
+            
+        </div>
+    </center>
+</body>
+{% endblock %}

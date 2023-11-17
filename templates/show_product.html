@@ -1,0 +1,33 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+{% load static %}
+<br><br>
+<body style='background:linear-gradient(135deg,#71b7e6,#9b59b6)'> 
+<h1><center>Product Details</center></h1><br>
+<div class="container">
+    <div style="overflow-y:scroll;max-height:75vh;">
+    <table class="table" border="2px">
+        <tr>
+            <th>Product Name</th>
+            <th>Decsription</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+        {% for i in shw %}
+        <tr>
+            <td>{{i.productname}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.category.category}}</td>
+            <td>{{i.price}}</td>
+            <td><img src="{{i.image.url}}" width="150" alt=""> {{i.image}}</td>
+            <td><a href="{% url "deletep" i.id %}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+
+</body>
+{% endblock %}

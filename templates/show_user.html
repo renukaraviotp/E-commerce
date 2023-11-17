@@ -1,0 +1,30 @@
+{% extends 'navbar2.html' %}
+{% block content %}
+{% load static %}
+<br><br>
+<body style='background:linear-gradient(135deg,#71b7e6,#9b59b6)'> 
+<h1><center>User Details</center></h1><br>
+<div class="container">
+    <table class="table" border="2px">
+        <tr>
+            <th>Username</th>
+            <th>Address</th>
+            <th>Contact Number</th>
+            <th>Email ID</th>
+            <th>Profile Photo</th> 
+            <th>Action</th>
+        </tr>
+        {% for i in s %}
+        <tr>  
+            <td>{{i.user.username}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.contactnumber}}</td>
+            <td>{{i.user.email}}</td>
+            <td><img src="{{i.image.url}}" width="150" alt=""></td>
+            <td><a href="{% url "deleteu" i.id %}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+{% endblock %}

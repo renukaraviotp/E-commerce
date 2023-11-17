@@ -1,0 +1,36 @@
+{% extends "navbar2.html" %}
+{% block content %}
+{% load static %}
+<head>
+    <style>
+        #cd{
+            background-color: rgba(0, 0, 0, 0.65);
+            padding: 20px;
+            border-radius: 5px;
+            font-size: larger;
+        }
+        body{
+            background-image:url('{% static "images/ac.jpg" %}');
+            background-size:cover;
+            background-repeat:no repeat;
+        }
+    </style>
+</head>
+<body> 
+    <br><br><br> 
+    <center>
+        <div class="container col-8" id="cd">
+            <h1 style='color:#bfe5f5;'>Add Category</h1>
+            <form action="{% url "addc" %}" method='post'>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1"></label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name='category' placeholder="Category">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save</button> 
+            </form>
+        </div>
+    </center>
+</body>
+<br><br><br><br><br>
+{% endblock %}
