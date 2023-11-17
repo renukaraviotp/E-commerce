@@ -181,7 +181,7 @@ def deletep(request,pk):
 # delete user
 @login_required(login_url='home')
 def deleteu(request,pk):
-    c=Customer.objects.get(id=pk)
+    c=Customer.objects.get(user_id=pk)
     d=c.user.id 
     u=User.objects.get(id=d)
     c.delete() 

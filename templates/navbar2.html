@@ -40,6 +40,10 @@
             text-decoration: none;
             font-size: 20px;
         }
+        #ah:hover{
+            background-color: #555;
+            width: 100%;
+        }
 
   </style>
 </head>
@@ -76,27 +80,27 @@
             <br><br><br>
               <ul class="nav flex-column" >
                   <li class="nav-item">
-                      <a class="nav-link active" href="{% url 'adminhome' %}">
+                      <a class="nav-link active" href="{% url 'adminhome' %}" id='ah' style='text-decoration:none;display: block;padding: 15px;color: white;transition: background-color 0.3s;'>
                           Dashboard
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="add_category">
+                      <a class="nav-link" href="add_category" id='ah' style='text-decoration:none;display: block;padding: 15px;color: white;transition: background-color 0.3s;'>
                           Add Category
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="{% url 'add_product' %}">
+                      <a class="nav-link" href="{% url 'add_product' %}" id='ah' style='text-decoration:none;display: block;padding: 15px;color: white;transition: background-color 0.3s;'>
                           Add Product
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="{% url 'show_product' %}">
+                      <a class="nav-link" href="{% url 'show_product' %}" id='ah' style='text-decoration:none;display: block;padding: 15px;color: white;transition: background-color 0.3s;'>
                           Show Product
                       </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'show_user' %}">
+                    <a class="nav-link" href="{% url 'show_user' %}" id='ah' style='text-decoration:none;display: block;padding: 15px;color: white;transition: background-color 0.3s;'>
                         User Details
                     </a>
                 </li>
